@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "author": "FINAL_PROJECT",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-pi-pico", "id": "pico", "top": 20, "left": 20, "attrs": {} },
+    { "type": "wokwi-hc-sr04", "id": "sonar", "top": -140, "left": 200, "attrs": {} },
+    { "type": "wokwi-resistor", "id": "r1", "top": 40, "left": 280, "rotate": 90, "attrs": { "value": "1000" } },
+    { "type": "wokwi-resistor", "id": "r2", "top": 170, "left": 280, "rotate": 90, "attrs": { "value": "2000" } }
+  ],
+  "connections": [
+    [ "pico:VBUS", "sonar:VCC", "red", [] ],
+    [ "pico:GND.8", "sonar:GND", "black", [] ],
+    [ "pico:GP16", "sonar:TRIG", "green", [] ],
+    [ "sonar:ECHO", "r1:1", "gold", [] ],
+    [ "r1:2", "pico:GP17", "gold", [] ],
+    [ "r1:2", "r2:1", "gold", [] ],
+    [ "r2:2", "pico:GND.3", "black", [] ]
+  ]
+}

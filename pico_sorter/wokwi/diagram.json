@@ -1,0 +1,541 @@
+{
+  "version": 1,
+  "author": "FINAL_PROJECT",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-breadboard",
+      "id": "bb",
+      "top": 235.4,
+      "left": 4,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": 24.05,
+      "left": 292.8,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo1",
+      "top": 45.2,
+      "left": -26,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo2",
+      "top": -137.2,
+      "left": -26,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "sonar",
+      "top": -257.7,
+      "left": 168.7,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 360,
+      "left": 460.25,
+      "rotate": 90,
+      "attrs": {
+        "value": "1000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 291.4,
+      "left": 421.55,
+      "rotate": 270,
+      "attrs": {
+        "value": "2000"
+      }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd",
+      "top": 380.8,
+      "left": 735.2,
+      "attrs": {
+        "pins": "i2c"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "pico:GP0",
+      "bb:1b.h",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GP1",
+      "bb:2b.h",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GND.1",
+      "bb:3b.h",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GP2",
+      "bb:4b.h",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GP3",
+      "bb:5b.h",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GP4",
+      "bb:6b.h",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GP5",
+      "bb:7b.h",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GND.2",
+      "bb:8b.h",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GP6",
+      "bb:9b.h",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GP7",
+      "bb:10b.h",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GP8",
+      "bb:11b.h",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GP9",
+      "bb:12b.h",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GND.3",
+      "bb:13b.h",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GP10",
+      "bb:14b.h",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GP11",
+      "bb:15b.h",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GP12",
+      "bb:16b.h",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GP13",
+      "bb:17b.h",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GND.4",
+      "bb:18b.h",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GP14",
+      "bb:19b.h",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GP15",
+      "bb:20b.h",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GP16",
+      "bb:20t.c",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GP17",
+      "bb:19t.c",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GND.5",
+      "bb:18t.c",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GP18",
+      "bb:17t.c",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GP19",
+      "bb:16t.c",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GP20",
+      "bb:15t.c",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GP21",
+      "bb:14t.c",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GND.6",
+      "bb:13t.c",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GP22",
+      "bb:12t.c",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:RUN",
+      "bb:11t.c",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GP26",
+      "bb:10t.c",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GP27",
+      "bb:9t.c",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GND.7",
+      "bb:8t.c",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GP28",
+      "bb:7t.c",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:ADC_VREF",
+      "bb:6t.c",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:3V3",
+      "bb:5t.c",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:3V3_EN",
+      "bb:4t.c",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:GND.8",
+      "bb:3t.c",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:VSYS",
+      "bb:2t.c",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "pico:VBUS",
+      "bb:1t.c",
+      "",
+      [
+        "$bb"
+      ]
+    ],
+    [
+      "bb:1t.a",
+      "bb:tp.1",
+      "red",
+      []
+    ],
+    [
+      "bb:18t.a",
+      "bb:tn.11",
+      "blue",
+      []
+    ],
+    [
+      "bb:tn.16",
+      "bb:bn.30",
+      "blue",
+      []
+    ],
+    [
+      "bb:tp.16",
+      "bb:bp.30",
+      "red",
+      []
+    ],
+    [
+      "servo1:PWM",
+      "bb:1b.i",
+      "orange",
+      []
+    ],
+    [
+      "servo1:V+",
+      "bb:bp.4",
+      "red",
+      []
+    ],
+    [
+      "servo1:GND",
+      "bb:bn.4",
+      "black",
+      []
+    ],
+    [
+      "servo2:PWM",
+      "bb:2b.i",
+      "orange",
+      []
+    ],
+    [
+      "servo2:V+",
+      "bb:bp.8",
+      "red",
+      []
+    ],
+    [
+      "servo2:GND",
+      "bb:bn.8",
+      "black",
+      []
+    ],
+    [
+      "sonar:VCC",
+      "bb:tp.22",
+      "red",
+      []
+    ],
+    [
+      "sonar:GND",
+      "bb:tn.22",
+      "black",
+      []
+    ],
+    [
+      "sonar:TRIG",
+      "bb:20t.a",
+      "green",
+      []
+    ],
+    [
+      "sonar:ECHO",
+      "bb:24t.a",
+      "gold",
+      []
+    ],
+    [
+      "r1:1",
+      "bb:24t.b",
+      "gold",
+      []
+    ],
+    [
+      "r1:2",
+      "bb:29t.b",
+      "gold",
+      []
+    ],
+    [
+      "bb:29t.c",
+      "bb:19t.a",
+      "gold",
+      []
+    ],
+    [
+      "r2:1",
+      "bb:29t.a",
+      "green",
+      []
+    ],
+    [
+      "r2:2",
+      "bb:26t.a",
+      "green",
+      []
+    ],
+    [
+      "bb:26t.b",
+      "bb:tn.26",
+      "black",
+      []
+    ],
+    [
+      "lcd:VCC",
+      "bb:tp.28",
+      "red",
+      []
+    ],
+    [
+      "lcd:GND",
+      "bb:tn.28",
+      "black",
+      []
+    ],
+    [
+      "lcd:SDA",
+      "bb:6b.i",
+      "purple",
+      []
+    ],
+    [
+      "lcd:SCL",
+      "bb:7b.i",
+      "blue",
+      []
+    ]
+  ],
+  "dependencies": {}
+}

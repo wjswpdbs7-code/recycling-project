@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "author": "FINAL_PROJECT",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard", "id": "bb", "top": 200, "left": 0, "attrs": {} },
+    { "type": "wokwi-pi-pico", "id": "pico", "top": 255, "left": 20, "rotate": 270, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo1", "top": -180, "left": -40, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo2", "top": -180, "left": 130, "attrs": {} },
+    { "type": "wokwi-lcd1602", "id": "lcd", "top": -140, "left": 340, "attrs": { "pins": "i2c" } },
+    { "type": "wokwi-hc-sr04", "id": "sonar", "top": 560, "left": 220, "attrs": {} },
+    { "type": "wokwi-resistor", "id": "r1", "top": 520, "left": 480, "attrs": { "value": "1000" } },
+    { "type": "wokwi-resistor", "id": "r2", "top": 620, "left": 480, "attrs": { "value": "2000" } }
+  ],
+  "connections": [
+    [ "pico:GP0", "bb:1t.c", "orange", [] ],
+    [ "pico:GP1", "bb:2t.c", "orange", [] ],
+    [ "pico:GP4", "bb:6t.c", "purple", [] ],
+    [ "pico:GP5", "bb:7t.c", "blue", [] ],
+    [ "pico:VBUS", "bb:1b.h", "red", [] ],
+    [ "pico:GND.8", "bb:3b.h", "black", [] ],
+    [ "pico:GP17", "bb:19b.h", "gold", [] ],
+    [ "pico:GP16", "bb:20b.h", "green", [] ],
+
+    [ "bb:1b.i", "bb:bp.1", "red", [] ],
+    [ "bb:3b.i", "bb:bn.2", "black", [] ],
+    [ "bb:bp.25", "bb:tp.25", "red", [] ],
+    [ "bb:bn.25", "bb:tn.25", "black", [] ],
+
+    [ "servo1:PWM", "bb:1t.a", "orange", [] ],
+    [ "servo2:PWM", "bb:2t.a", "orange", [] ],
+    [ "servo1:V+", "bb:tp.1", "red", [] ],
+    [ "servo2:V+", "bb:tp.2", "red", [] ],
+    [ "servo1:GND", "bb:tn.1", "black", [] ],
+    [ "servo2:GND", "bb:tn.2", "black", [] ],
+
+    [ "lcd:SDA", "bb:6t.a", "purple", [] ],
+    [ "lcd:SCL", "bb:7t.a", "blue", [] ],
+    [ "lcd:VCC", "bb:tp.6", "red", [] ],
+    [ "lcd:GND", "bb:tn.6", "black", [] ],
+
+    [ "sonar:VCC", "bb:24b.f", "red", [] ],
+    [ "sonar:TRIG", "bb:25b.f", "green", [] ],
+    [ "sonar:ECHO", "bb:26b.f", "gold", [] ],
+    [ "sonar:GND", "bb:27b.f", "black", [] ],
+    [ "bb:24b.g", "bb:bp.19", "red", [] ],
+    [ "bb:27b.g", "bb:bn.21", "black", [] ],
+    [ "bb:25b.g", "bb:20b.i", "green", [] ],
+
+    [ "r1:1", "bb:26b.g", "gold", [] ],
+    [ "r1:2", "bb:29b.f", "gold", [] ],
+    [ "bb:29b.g", "bb:19b.i", "gold", [] ],
+    [ "r2:1", "bb:29b.h", "gold", [] ],
+    [ "r2:2", "bb:bn.23", "black", [] ]
+  ]
+}

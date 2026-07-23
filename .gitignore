@@ -1,0 +1,31 @@
+# ── 비밀키 (절대 커밋 금지) ──
+.env.local
+.env
+*.pem
+*.key
+
+# ── 대용량 데이터셋 (20GB — AI Hub에서 재다운로드 가능) ──
+training/aihub_download/
+training/dataset_*/
+training/*.hwp
+
+# ── 빌드 산출물 (재빌드 가능, 각 25MB) ──
+**/build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# ── 파이썬 ──
+__pycache__/
+*.pyc
+.venv/
+
+# ── 로그·임시 ──
+*.log
+nohup.out
+opencv_ex/
+
+# ── OS ──
+.DS_Store
+Thumbs.db
