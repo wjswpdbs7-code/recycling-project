@@ -18,7 +18,7 @@ import tensorrt as trt
 import pycuda.driver as cuda
 import pycuda.autoinit  # noqa: F401  (CUDA 컨텍스트 초기화)
 
-ENGINE = "/home/jetson/runB17.engine"
+ENGINE = "/home/jetson/runB17_ft1.engine"  # ft1 시연 특화 (롤백: runB17.engine)
 IMGSZ = 640
 CONF_TH = 0.40
 DIRTY_TH = 0.70
