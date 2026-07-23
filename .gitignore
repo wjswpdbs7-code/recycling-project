@@ -29,3 +29,4 @@ opencv_ex/
 # ── OS ──
 .DS_Store
 Thumbs.db
+training/ft_run/
