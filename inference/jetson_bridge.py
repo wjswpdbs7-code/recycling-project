@@ -154,14 +154,34 @@ class Handler(BaseHTTPRequestHandler):
         pass
 
 
+def open_camera():
+    # 카메라가 늦게 인식되거나(부팅 직후/케이블 재삽입) 아직 없을 때 재시도
+    for attempt in range(30):
+        cap = cv2.VideoCapture(0)
+        if cap.isOpened():
+            cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
+            cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
+            cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)
+            ok, _ = cap.read()
+            if ok:
+                if attempt:
+                    log("카메라 연결 복구 (%d회 재시도)" % attempt)
+                return cap
+        cap.release()
+        if attempt == 0:
+            log("카메라 열기 실패 — 5초 간격 재시도(최대 30회)")
+        time.sleep(5)
+    return None
+
+
 def main():
     log("TensorRT 엔진 로드 중...")
     eng = Engine(ENGINE)
 
-    cap = cv2.VideoCapture(0)
-    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
-    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
-    cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)
+    cap = open_camera()
+    if cap is None:
+        log("카메라 포기 — 종료(systemd가 재시작)")
+        raise SystemExit(1)
 
     ser = None
     for attempt in range(10):          # 재시도 (권한/재열거 일시 오류 대응)
@@ -181,6 +201,7 @@ def main():
     log("모니터링: 노트북에서 http://192.168.55.1:%d" % PORT)
 
     last_live = 0.0
+    cam_fail = 0
     buf = b""
     while True:
         # 시리얼 수신
@@ -229,8 +250,19 @@ def main():
             last_live = now
             ok, f = cap.read()
             if ok:
+                cam_fail = 0
                 cmd, desc, dets = judge_frame(eng, f)
                 publish(f, dets, "LIVE: %s (%s)" % (cmd, desc))
+            else:
+                cam_fail += 1
+                if cam_fail >= 15:      # 약 6초 연속 실패 → 카메라 재연결 시도
+                    log("카메라 응답 없음 — 재연결 시도")
+                    cap.release()
+                    cap = open_camera()
+                    if cap is None:
+                        log("카메라 포기 — 종료(systemd가 재시작)")
+                        raise SystemExit(1)
+                    cam_fail = 0
 
 
 if __name__ == "__main__":
