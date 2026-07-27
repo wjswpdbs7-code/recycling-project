@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "author": "FINAL_PROJECT",
+  "author": "FINAL_PROJECT — 최종 하드웨어 설계 (2026-07-23 확정)",
   "editor": "wokwi",
   "parts": [
     {
@@ -68,6 +68,67 @@
       "left": 735.2,
       "attrs": {
         "pins": "i2c"
+      }
+    },
+    {
+      "type": "wokwi-vcc",
+      "id": "vbat",
+      "top": 560,
+      "left": -75.6,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-text",
+      "id": "t_title",
+      "top": -330,
+      "left": -60,
+      "attrs": {
+        "text": "분리수거 자동분류기 — 최종 배선 (pico_sonar_test/main.c 기준)"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "t_servo1",
+      "top": 110,
+      "left": -70,
+      "attrs": {
+        "text": "서보1 투입구 도어 GP0 (닫힘 90° / 열림 180°)"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "t_servo2",
+      "top": -72,
+      "left": -70,
+      "attrs": {
+        "text": "서보2 회전판 GP1 (0°=종이 90°=플라스틱 180°=비닐)"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "t_pwr",
+      "top": 600,
+      "left": -110,
+      "attrs": {
+        "text": "서보 전원 = 별도 건전지 5~6V (VCC 심볼로 대체) · Pico와 GND 공통"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "t_div",
+      "top": 430,
+      "left": 400,
+      "attrs": {
+        "text": "ECHO 5V→3.3V 분압 (1kΩ 직렬 + 2kΩ→GND)"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "t_uplink",
+      "top": -300,
+      "left": -60,
+      "attrs": {
+        "text": "상위 연결: Jetson Nano ↔ USB CDC 시리얼 (SORT/REJECT/DETECT) — 시뮬레이터에선 시리얼 모니터로 입력"
       }
     }
   ],
@@ -411,7 +472,7 @@
       []
     ],
     [
-      "bb:tp.16",
+      "vbat:VCC",
       "bb:bp.30",
       "red",
       []
